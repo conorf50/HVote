@@ -2,7 +2,7 @@
 -- Student Name : Conor Farrell
 -- Course: IoT Year 4
 
--- Voting calculator based on the Single Transferable Vote system
+-- Voting calculator based on the Single Transferable Vote system (also calculates first past the post)
 
 -- some sample votes for our candidates A,B,C,D and E
 ballots :: [[Char]]
@@ -78,7 +78,7 @@ main = do
     putStr "Total amount of ballots cast: "
     print(totalBallots)
 
-    putStr "Total amount of votes per candidate: "
+   -- putStr "Total amount of votes per candidate: "
 
     
 
