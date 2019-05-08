@@ -5,57 +5,13 @@
 -- Voting calculator based on the Single Transferable Vote system (also calculates first past the post)
 
 -- some sample votes for our candidates A,B,C,D and E
-ballots :: [[Char]]
-ballots = [
-    ['A','B','D', 'E'],
-    ['B','C','D', 'E', 'A'],
-    ['C','E', 'A', 'B'],
-    ['A','B','C', 'D', 'E'],
-    ['C','D', 'E', 'A'],
-    ['C','D','E', 'A', 'B'],
-    ['D','E','A', 'B', 'C'],
-    ['E','B', 'C', 'D'],
-    ['A','B','C', 'D', 'E'],
-    ['D','E','A', 'B', 'C'],
-    ['E','A','B', 'C', 'D'],
-    ['A','B','C', 'D', 'E'],
-    ['A'],
-    ['B','C','D', 'E', 'A'],
-    ['C','D', 'A', 'B'],
-    ['D','E','A', 'B', 'C'],
-    ['A','B', 'C', 'D'],
-    ['A','C', 'D', 'E'],
-    ['B','C','D', 'E', 'A'],
-    ['E', 'A', 'B'],
-    ['D','E','A', 'B', 'C'],
-    ['E','A','B', 'C', 'D'],
-    ['A','B','D', 'E'],
-    ['A','B','C', 'D', 'E'],
-    ['A','B','C', 'D', 'E'],
-    ['B','C','E','A'],
-    ['C','D','E', 'B'],
-    ['D','E','A', 'B', 'C'],
-    ['E','A','B', 'C', 'D'],
-    ['B','C', 'D', 'E'],
-    ['B','C','D', 'E', 'A'],
-    ['C','D','E', 'A', 'B'],
-    ['E','A', 'B', 'C'],
-    ['E','A','B', 'C', 'D'],
-    ['A','B','C', 'D', 'E'],
-    ['A','B','C', 'D', 'E'],
-    ['A','B','D', 'E'],
-    ['B','C','D', 'E', 'A'],
-    ['C','D','E', 'A', 'B'],
-    ['D','E','A', 'B', 'C'],
-    ['E','A','B', 'C', 'D'],
-    ['A','C', 'D']
-    ]
-
+-- imported from Ballots.hs module
+import Ballots
 
 totalBallots :: Int
 totalBallots = length ballots
 
-getVoterPreferences :: [[Char]] -> [Char]
+getVoterPreferences :: [[String]] -> [Char]
 getVoterPreferences = undefined
 
 
