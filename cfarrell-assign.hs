@@ -38,22 +38,13 @@ main = do
     -- re-do this as recursive function
     putStr "Total amount of votes for all candidates : "
     print(cntVotes ['A'..'E'])
-
-    -- putStr "Total amount of votes for candidate 'B': "
-    -- print(cntVotes ['B'])
-
-    -- putStr "Total amount of votes for candidate 'C': "
-    -- print(cntVotes ['C'])
-
-    -- putStr "Total amount of votes for candidate 'D': "
-    -- print(cntVotes ['D'])
-
-    -- putStr "Total amount of votes for candidate 'E': "
-    -- print(cntVotes ['E'])
-
-
-    -- print out a seperator
+   
     putStrLn "----------------------------------"
+
+    -- hutton example
+    -- putStr "Winner is: "
+    -- print(winner ballots)
+    -- putStrLn "----------------------------------"
     
     putStr ("Calculated quota for "  ++ show(totalBallots) ++ " ballots and "++ show(toElect) ++ " candidates : ")
     print(droopQuota totalBallots toElect)
