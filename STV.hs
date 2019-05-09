@@ -43,14 +43,14 @@ cntVotes (x:xs) = zip [x][countLetters (concatBallots ballots) x] ++ cntVotes xs
 
 -- based on code found here
 votesPerCandidate :: [(Char,Integer)] -> (Char, Integer)
-votesPerCandidate x  = ('B', 110)
+--votesPerCandidate x  = ('B', 110) -- in progress
+votesPerCandidate = undefined
 
 -- calculate the quota based on the 'droop quota' method
 -- also floors the values too
-highestVoter :: Int -> Int -> Int
-highestVoter 0 0 = 0
-highestVoter x c = x`div`(c+1)+1
-
+droopQuota :: Int -> Int -> Int
+droopQuota 0 0 = 0
+droopQuota x c = x`div`(c+1)+1
 
 
 
