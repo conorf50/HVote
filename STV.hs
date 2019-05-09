@@ -59,7 +59,6 @@ droopQuota 0 0 = 0
 droopQuota x c = x`div`(c+1)+1
 
 
-
 -- following code based on code from Graham Hutton
 rmempty :: Eq a => [[a]] -> [[a]]
 rmempty = filter (/= [])
