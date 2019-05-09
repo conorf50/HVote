@@ -27,8 +27,8 @@ countLetters str c = length $ filter (== c) str
 
 -- for each of of our candidates, rank their votes
 -- find occurances matcing the character c
-getVoteOccurances :: [Char] -> Int
-getVoteOccurances c = countLetters (concatBallots ballots) (head(c))
+cntVotes :: Char -> Int
+cntVotes c = countLetters (concatBallots ballots) c
 
 
 main :: IO()
@@ -39,8 +39,24 @@ main = do
     putStr "Total amount of ballots cast: "
     print(totalBallots)
 
-    putStr "Total amount of votes per candidate: "
-    print(getVoteOccurances ([ x | x <- ['A'.. 'F']]))
+    --print(cntVotes ([ x | x <- ['A'.. 'F']]))
+
+
+    putStr "Total amount of votes for candidate 'A': "
+    print(cntVotes 'A')
+
+    putStr "Total amount of votes for candidate 'B': "
+    print(cntVotes 'B')
+
+    putStr "Total amount of votes for candidate 'C': "
+    print(cntVotes 'C')
+
+    putStr "Total amount of votes for candidate 'D': "
+    print(cntVotes 'D')
+
+    putStr "Total amount of votes for candidate 'E': "
+    print(cntVotes 'E')
+
 
 
     
