@@ -7,7 +7,7 @@
 -- some sample votes for our candidates A,B,C,D and E
 -- imported from Ballots.hs module
 import Ballots
--- vote calculation finctions
+-- vote calculation functions
 import STV
 
 
@@ -35,25 +35,17 @@ main = do
 
     --print(cntVotes ([ x | x <- ['A'.. 'F']]))
 
-    -- re-do this as recursive function
-    putStr "Total amount of votes for all candidates : "
-    print(cntVotes ['A'..'E'])
-
-    -- putStr "Total amount of votes for candidate 'B': "
-    -- print(cntVotes ['B'])
-
-    -- putStr "Total amount of votes for candidate 'C': "
-    -- print(cntVotes ['C'])
-
-    -- putStr "Total amount of votes for candidate 'D': "
-    -- print(cntVotes ['D'])
-
-    -- putStr "Total amount of votes for candidate 'E': "
-    -- print(cntVotes ['E'])
-
-
-    -- print out a seperator
-    putStrLn "----------------------------------"
     
+    putStr "Total amount of votes for all candidates : "
+    -- print(cntVotes ['A'..'E'])
+    print voteCounts
+   
+    putStrLn "----------------------------------"
+
     putStr ("Calculated quota for "  ++ show(totalBallots) ++ " ballots and "++ show(toElect) ++ " candidates : ")
     print(droopQuota totalBallots toElect)
+
+        -- hutton example
+    putStr "Election winner is: "
+    print(winner ballots)
+    putStrLn "----------------------------------"
