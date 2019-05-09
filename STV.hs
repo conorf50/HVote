@@ -22,9 +22,14 @@ countLetters str c = length $ filter (== c) str
 -- cntVotes :: Char -> Int
 -- cntVotes c = countLetters (concatBallots ballots) c
 
-cntVotes :: [Char] -> [Int]
-cntVotes [] = [0]
-cntVotes (x:xs) = [countLetters (concatBallots ballots) x] ++ cntVotes xs
+-- cntVotes :: [Char] -> [Int]
+-- cntVotes [] = [0]
+-- cntVotes (x:xs) = [countLetters (concatBallots ballots) x] ++ cntVotes xs
+
+
+cntVotes :: [Char] -> [(Char,Int)]
+cntVotes [] = [('-',0)]
+cntVotes (x:xs) = zip [x][countLetters (concatBallots ballots) x] ++ cntVotes xs
 
 
 
