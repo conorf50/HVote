@@ -15,7 +15,6 @@ getVoterPreferences :: [[String]] -> [Char]
 getVoterPreferences = undefined
 
 
-getVoteOccurances = undefined
 
 -- convert the lists of votes into one long String (based on examples from notes)
 concatBallots :: [[a]] -> [a]
@@ -26,6 +25,12 @@ concatBallots xss = [x | xs <- xss, x <- xs]
 countLetters :: String -> Char -> Int
 countLetters str c = length $ filter (== c) str
 
+-- for each of of our candidates, rank their votes
+-- find occurances matcing the character c
+getVoteOccurances :: Char -> Int
+getVoteOccurances c = countLetters (concatBallots ballots) c
+
+
 main :: IO()
 main = do
     -- call other stuff here
@@ -34,9 +39,8 @@ main = do
     putStr "Total amount of ballots cast: "
     print(totalBallots)
 
-   -- putStr "Total amount of votes per candidate: "
-
-    
+    putStr "Total amount of votes per candidate: "
+    print(getVoteOccurances (head([ x | x <- ['A'.. 'F']])))
 
 
     
