@@ -9,7 +9,8 @@ module STV (
     rmempty,
     count,
     rmdups,
-    result
+    result,
+    voteCounts
 )
 where
 import Ballots
@@ -39,12 +40,17 @@ cntVotes :: [Char] -> [(Char,Int)]
 cntVotes [] = [('-',0)]
 cntVotes (x:xs) = zip [x][countLetters (concatBallots ballots) x] ++ cntVotes xs
 
+voteCounts :: [(Char, Int)]
+voteCounts = cntVotes ['A'..'E']
 
 
--- based on code found here
-votesPerCandidate :: [(Char,Integer)] -> (Char, Integer)
---votesPerCandidate x  = ('B', 110) -- in progress
-votesPerCandidate = undefined
+
+-- from Learn You A Haskell For Great Good, find votes in list
+findKey :: (Eq k) => k -> [(k,v)] -> Maybe v  
+findKey key [] = Nothing  
+findKey key ((k,v):xs) = if key == k  
+                            then Just v  
+                            else findKey key xs  
 
 -- calculate the quota based on the 'droop quota' method
 -- also floors the values too

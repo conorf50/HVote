@@ -37,7 +37,8 @@ main = do
 
     
     putStr "Total amount of votes for all candidates : "
-    print(cntVotes ['A'..'E'])
+    -- print(cntVotes ['A'..'E'])
+    print voteCounts
    
     putStrLn "----------------------------------"
 
