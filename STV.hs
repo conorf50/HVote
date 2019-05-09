@@ -6,6 +6,7 @@ module STV (
 )
 where
 import Ballots
+import Data.List
 
 
 -- convert the lists of votes into one long String (based on examples from notes)
@@ -38,3 +39,30 @@ cntVotes (x:xs) = zip [x][countLetters (concatBallots ballots) x] ++ cntVotes xs
 droopQuota :: Int -> Int -> Int
 droopQuota 0 0 = 0
 droopQuota x c = x`div`(c+1)+1
+
+
+-- following code based on code from Graham Hutton
+rmempty :: Eq a => [[a]] -> [[a]]
+rmempty = filter (/= [])
+
+elim :: Eq a => a -> [[a]] -> [[a]]
+elim x = map (filter (/= x))
+
+rank :: Ord a => [[a]] -> [a]
+rank = map snd . result . map head
+
+winner :: Ord a => [[a]] -> a
+winner bs = case rank (rmempty bs) of
+                [c]    -> c
+                (c:cs) -> winner (elim c bs)
+
+                
+count :: Eq a => a -> [a] -> Int
+count x = length . filter (== x)
+                
+rmdups :: Eq a => [a] -> [a]
+rmdups []     = []
+rmdups (x:xs) = x : filter (/= x) (rmdups xs)
+                
+result :: Ord a => [a] -> [(Int, a)]
+result vs = sort [(count v vs, v) | v <- rmdups vs]                
