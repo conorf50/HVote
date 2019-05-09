@@ -19,8 +19,13 @@ countLetters str c = length $ filter (== c) str
 
 -- for each of of our candidates, count their votes
 -- find occurances matcing the character c
-cntVotes :: Char -> Int
-cntVotes c = countLetters (concatBallots ballots) c
+-- cntVotes :: Char -> Int
+-- cntVotes c = countLetters (concatBallots ballots) c
+
+cntVotes :: [Char] -> [Int]
+cntVotes [] = [0]
+cntVotes (x:xs) = [countLetters (concatBallots ballots) x] ++ cntVotes xs
+
 
 
 -- calculate the quota based on the 'droop quota' method
